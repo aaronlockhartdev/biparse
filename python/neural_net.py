@@ -24,9 +24,8 @@ def create_model():
                     metrics=['accuracy'])
     return model
 
-def train_model(train_text, train_bias):
+def train_model(train_text, train_bias, model):
     tf.logging.set_verbosity(1)
-    model = create_model()
     model.summary()
 
     model.fit(train_text, train_bias, epochs=3)
@@ -36,7 +35,6 @@ def train_model(train_text, train_bias):
     model_json = model.to_json()
     with open("tmp/model.json", "w") as json_file:
         json_file.write(model_json)
-
 
 def load_model():
     json_file = open("tmp/model.json", "r")

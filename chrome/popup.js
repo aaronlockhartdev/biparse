@@ -9,10 +9,11 @@ var leftSureness = 0;
 var leftLink = "";
 var rightLink = "";
 var midLink = "";
+var link = "127.0.0.1:5000"
 
 chrome.tabs.getSelected(null, function (tab) {
 
-  fetch('http://192.168.180.203:5000/output', {
+  fetch('http://' + link + '/', {
 
     mode: 'no-cors',
 
@@ -28,7 +29,7 @@ chrome.tabs.getSelected(null, function (tab) {
   }).catch(function (error) {
     console.log(error);
   })
-  fetch('http://192.168.180.203:5000/input', { mode: 'cors', method: 'GET' })
+  fetch('http://' + link + '/', { mode: 'cors', method: 'GET' })
     .then(function(response) {
       return response.json()
     })
