@@ -2,3 +2,5 @@
 *.pkl
 *.json
 *.h5
+*.pyc
+/api/__pycache__
