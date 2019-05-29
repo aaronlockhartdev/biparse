@@ -12,7 +12,7 @@ def set_train_data():
     sources = list()
     counter = 0
     for i in range(1, 4):
-        with open('articles' + str(i) + '.csv', encoding='utf-8') as csv_file:
+        with open('data/articles' + str(i) + '.csv', encoding='utf-8') as csv_file:
             csv_reader = list(csv.reader(csv_file, delimiter=','))
             for row in range(0, len(csv_reader), 3):
                 counter += 1
@@ -26,20 +26,20 @@ def set_train_data():
                     train_freq.append(list(parse_article(csv_reader[row][9]).values()))
                     train_text.append(list(parse_article(csv_reader[row][9]).keys()))
 
-    with open('tmp/train_text.pkl', 'wb') as tt:
+    with open('data/train_text.pkl', 'wb') as tt:
         pickle.dump(train_text, tt)
-    with open('tmp/train_bias.pkl', 'wb') as tb:
+    with open('data/train_bias.pkl', 'wb') as tb:
         pickle.dump(train_bias, tb)
     with open('tmp/train_freq.pkl', 'wb') as tf:
         pickle.dump(train_freq, tf)
     
 
 def open_train_data():
-    with open('tmp/train_text.pkl', 'rb') as tt:
+    with open('data/train_text.pkl', 'rb') as tt:
         train_text = pickle.load(tt)
-    with open('tmp/train_bias.pkl', 'rb') as tb:
+    with open('data/train_bias.pkl', 'rb') as tb:
         train_bias = pickle.load(tb)
-    with open('tmp/train_freq.pkl', 'rb') as tf:
+    with open('data/train_freq.pkl', 'rb') as tf:
         train_freq = pickle.load(tf)
     return train_freq, train_bias, train_text
 
@@ -56,7 +56,7 @@ def get_unique():
     unique = list(set(total))
 
 
-    with open('tmp/unique.pkl', 'wb') as ui:
+    with open('data/unique.pkl', 'wb') as ui:
         pickle.dump(unique, ui)
 
     print(len(unique))
@@ -65,7 +65,7 @@ def load_unique():
 
     # loads the unique words
 
-    with open('tmp/unique.pkl', 'rb') as ui:
+    with open('data/unique.pkl', 'rb') as ui:
         unique = pickle.load(ui)
 
     return unique
@@ -95,17 +95,17 @@ def format_training_data():
     combined = list(zip(training_data_formatted, train_bias))
     random.shuffle(combined)
     training_data_formatted[:], train_bias[:] = zip(*combined)
-    with open('tmp/training_freq_formatted.pkl', 'wb') as tdf:
+    with open('data/training_freq_formatted.pkl', 'wb') as tdf:
         pickle.dump(training_data_formatted, tdf)
-    with open('tmp/training_bias_formatted.pkl', 'wb') as tbf:
+    with open('data/training_bias_formatted.pkl', 'wb') as tbf:
         pickle.dump(train_bias, tbf)
 
 def get_train_data():
 
     # loads training data from files
 
-    with open('tmp/training_freq_formatted.pkl', 'rb') as tdf:
+    with open('data/training_freq_formatted.pkl', 'rb') as tdf:
         freq = np.asarray(pickle.load(tdf))
-    with open('tmp/training_bias_formatted.pkl', 'rb') as tbf:
+    with open('data/training_bias_formatted.pkl', 'rb') as tbf:
         bias = np.asarray(pickle.load(tbf))
     return freq, bias
