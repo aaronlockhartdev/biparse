@@ -1,7 +1,6 @@
 import tensorflow as tf
 from tensorflow import keras
 import numpy as np
-from sklearn.externals import joblib
 import os
 
 tf.enable_eager_execution()
