@@ -16,8 +16,8 @@ Upon installation of BiParse as well as the prerequisites, run setup.py to build
 
 ## Built With
 
-[Flask](http://flask.pocoo.org/) - The web server used
-[TensorFlow](https://www.tensorflow.org/) - The machine learning library used
+* [Flask](http://flask.pocoo.org/) - The web server used
+* [TensorFlow](https://www.tensorflow.org/) - The machine learning library used
 
 ## License
 
