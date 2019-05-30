@@ -22,4 +22,3 @@ Upon installation of BiParse and its prerequisites, run setup.py to build the ne
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
-
