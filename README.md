@@ -1,6 +1,6 @@
 # BiParse
 
-BiParse is a Bipartisan Parsing extension powered by machine learning. In America, there is an increasing amount of political division as we are fed extremely polar perspectives on current events by the media. BiParse hopes to alleviate that problem, making the public aware of the biases the articles and blogs they read are feeding into as well as suggesting other perspectives on the issues of our time.
+BiParse is a Bipartisan Parsing extension powered by machine learning. In America, the amount of political division increases as the media feeds us extremely polar perspectives on current events. BiParse hopes to alleviate the problem of confirmation bias by making the public aware of the biases of the articles and blogs they read, as well as suggesting other perspectives on the issues of our time.
 
 ## Getting Started
 
