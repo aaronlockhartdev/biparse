@@ -22,8 +22,8 @@ def create_model():
                     loss='categorical_crossentropy',
                     metrics=['accuracy'])
 
-    model.save_weights("tmp/model.h5")
-    with open("tmp/model.json", "w") as json_file:
+    model.save_weights("data/model.h5")
+    with open("data/model.json", "w") as json_file:
         json_file.write(model_json)
 
 
@@ -33,17 +33,17 @@ def train_model(train_freq, train_bias, model):
 
     model.fit(train_freq, train_bias, epochs=3)
     model.evaluate(train_freq, train_bias)
-    model.save_weights("tmp/model.h5")
+    model.save_weights("data/model.h5")
 
     model_json = model.to_json()
     
 
 def load_model():
-    json_file = open("tmp/model.json", "r")
+    json_file = open("data/model.json", "r")
     model_json = json_file.read()
     json_file.close()
     model = keras.models.model_from_json(model_json)
-    model.load_weights("tmp/model.h5")
+    model.load_weights("data/model.h5")
     model.compile(optimizer=keras.optimizers.Adam(lr=0.001, beta_1=0.9, beta_2=0.999, epsilon=None, decay=0.0, amsgrad=False),
                     loss='categorical_crossentropy',
                     metrics=['accuracy'])

@@ -1,5 +1,6 @@
 import pickle
 import numpy as np
+import parser
 
 def set_train_data():
     csv.field_size_limit(100000000)
@@ -19,12 +20,12 @@ def set_train_data():
                 print("Getting training data: " + str(round(100*counter/50000, 2)) + '%', end='\r', flush=True)
                 if csv_reader[row][3] in conservative:
                     train_bias.append([0,1])
-                    train_freq.append(list(parse_article(csv_reader[row][9]).values()))
-                    train_text.append(list(parse_article(csv_reader[row][9]).keys()))
+                    train_freq.append(list(parser.parse_article(csv_reader[row][9]).values()))
+                    train_text.append(list(parser.parse_article(csv_reader[row][9]).keys()))
                 if csv_reader[row][3] in liberal:
                     train_bias.append([1,0])
-                    train_freq.append(list(parse_article(csv_reader[row][9]).values()))
-                    train_text.append(list(parse_article(csv_reader[row][9]).keys()))
+                    train_freq.append(list(parser.parse_article(csv_reader[row][9]).values()))
+                    train_text.append(list(parser.parse_article(csv_reader[row][9]).keys()))
 
     with open('data/train_text.pkl', 'wb') as tt:
         pickle.dump(train_text, tt)
