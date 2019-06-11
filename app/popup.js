@@ -9,7 +9,7 @@ var leftSureness = 0;
 var leftLink = "";
 var rightLink = "";
 var midLink = "";
-var link = "127.0.0.1:5000"
+var link = "24.218.222.206:5000"
 
 chrome.tabs.getSelected(null, function (tab) {
 

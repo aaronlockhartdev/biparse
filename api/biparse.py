@@ -60,4 +60,4 @@ def main():
         return json
 
 if __name__ == '__main__':
-    app.run("0.0.0.0", "5000", threaded=False, debug=True)
+    app.run(host='0.0.0.0', threaded=False, debug=True)
